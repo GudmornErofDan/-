@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+<style>
+	.spoiler-content{
+		display: none;
+	}
+</style>
+
+	<div class="spoiler">
+	  <div class="spoiler-header">
+	    <h2>Первый спойлер</h2>
+	    <button class="spoiler-toggle">+</button>
+	  </div>
+	  <div class="spoiler-content">
+	    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa sint necessitatibus magnam earum quisquam aliquam impedit facilis cum amet nisi veritatis, harum fugiat quo saepe alias vel, itaque, consequuntur distinctio.</p>
+	  </div>
+	</div>
+
+	<div class="spoiler">
+	  <div class="spoiler-header">
+	    <h2>Второй спойлер</h2>
+	    <button class="spoiler-toggle">+</button>
+	  </div>
+	  <div class="spoiler-content">
+	    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa sint necessitatibus magnam earum quisquam aliquam impedit facilis cum amet nisi veritatis, harum fugiat quo saepe alias vel, itaque, consequuntur distinctio.</p>
+	  </div>
+	</div>
+
+	<div class="spoiler">
+	  <div class="spoiler-header">
+	    <h2>Третий спойлер</h2>
+	    <button class="spoiler-toggle">+</button>
+	  </div>
+	  <div class="spoiler-content">
+	    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa sint necessitatibus magnam earum quisquam aliquam impedit facilis cum amet nisi veritatis, harum fugiat quo saepe alias vel, itaque, consequuntur distinctio.</p>
+	  </div>
+	</div>
+
+</body>
+
+<script>
+// Получаем все элементы спойлеров
+const spoilers = document.querySelectorAll('.spoiler');
+ 
+// Перебираем каждый спойлер и добавляем обработчики событий
+spoilers.forEach(spoiler => {
+  // Получаем кнопку и контент спойлера
+  const toggle = spoiler.querySelector('.spoiler-toggle');
+  const content = spoiler.querySelector('.spoiler-content');
+ 
+  // Добавляем обработчик клика на кнопку
+  toggle.addEventListener('click', function(){
+    // Проверяем состояние спойлера
+    const isExpanded = toggle.innerText === '-';
+     
+    // Изменяем состояние спойлера
+    if (isExpanded) {
+      toggle.innerText = '+';
+      content.style.display = 'none';
+    } else {
+      toggle.innerText = '-';
+      content.style.display = 'block';
+    }
+  });
+});
+console.log(spoilers[0],spoilers[1],spoilers[2])
+</script>
+</html>

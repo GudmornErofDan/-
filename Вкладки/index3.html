@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+<style>
+#parent {
+	margin: 0 auto;
+	width: 300px;
+}
+
+.tab {
+	margin-bottom: 10px;
+}
+
+.tab .link a {
+	display: block;
+	padding: 50px;
+	color: black;
+	text-decoration: none;
+	text-align: center;
+	background: #6784e2;
+	border: 1px solid black;
+}
+
+.tab .link:hover a {
+	background: #bce0bc;
+}
+
+.tab:not(.active) .text {
+	display: none;
+}
+
+.tab .text {
+	border: 1px dashed black;
+	border-top: none;	
+	padding: 15px;
+	height: 10px;
+}
+	
+</style>
+
+<div id="parent">
+	<div class="1 tab">
+		<div class="link">
+			<a href="#" >Можно</a>
+		</div>
+		<div class="text">
+			Зачётик
+		</div>
+	</div>
+	<div class="2 tab">
+		<div class="link">
+			<a href="#" >Пожалуйста</a>
+		</div>
+		<div class="text">
+			Зачётик
+		</div>
+	</div>
+	<div class="3 tab">
+		<div class="link">
+			<a href="#" >Зачётик</a>
+		</div>
+		<div class="text">
+			Можно Пожалуйста
+		</div>
+	</div>
+</div>
+
+<script>
+			
+	let parent = document.querySelector('#parent');
+	let links  = parent.querySelectorAll('.tab .link a');
+	links.forEach(link =>
+	{
+		link.addEventListener('click', function(event) {
+			let activeTab = parent.querySelector('.tab.active');			
+			let newTab = link.closest('.tab');
+			console.log(newTab);
+			if (newTab !== activeTab) {
+				newTab.classList.add('active');
+			}							
+			if (activeTab) {
+				activeTab.classList.remove('active');
+			}			
+			event.preventDefault();
+		});
+	});
+		
+</script>
+
+</body>
+</html>
